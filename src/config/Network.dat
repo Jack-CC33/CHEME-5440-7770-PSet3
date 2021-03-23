@@ -1,0 +1,6 @@
+# Stoichiometric Array for Urea Cycle
+
+# Species = ["Carbomoyl_Phosphate", "Citrulline", "Aspartate", "Argininosuccinate", "Fumarate", "Arginine", "Urea", "Ornithine"]
+# Rxns    = ["v1", "v2", "v3", "v4", "v5", "b1", "b2", "b3", "b4"] 
+
+[ 0,0,0,-1,0,1,0,0,0; -1,0,0,1,+/-1,0,0,0,0; -1,0,0,0,0,0,1,0,0; 1,-1,0,0,0,0,0,0,0; 0,1,0,0,0,0,0,-1,0; 0,1,-1,0,+/-1,0,0,0,0; 0,0,1,0,0,0,0,0,-1; 0,0,1,-1,0,0,0,0,0]

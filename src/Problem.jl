@@ -34,7 +34,7 @@ function generate_problem_dictionary()
 
 	# Load the stoichiometric network from disk -
 	path_to_network_file = joinpath(_PATH_TO_CONFIG,"Network.dat")
-	stoichiometric_matrix = readdlm(path_to_network_file);
+	stoichiometric_matrix = readdlm(path_to_network_file, ',', Int, '\n');
 
 	# What is the system dimension? -
 	(number_of_species,number_of_reactions) = size(stoichiometric_matrix)
@@ -45,6 +45,13 @@ function generate_problem_dictionary()
 	# TODO: col 1 => lower bound
 	# TODO: col 2 => upper bound
 	# TODO: each row is a reaction
+	flux_bounds_array[1,:] = [0, 3.1716]
+	flux_bounds_array[2,:] = [0, 7.308]
+	flux_bounds_array[3,:] = [0, 1.242]
+	flux_bounds_array[4,:] = [0, 8.964]
+	flux_bounds_array[5,:] = [-0.4932, 0.4932]
+	flux_bounds_array[6:19, 0] .= 0    # [mmol/gDW*hr]  lower bound on exchange fluxes
+	flux_bounds_array[6:19, 1] .= 10   # [mmol/gDW*hr]  upper bound on exchange fluxes
 
 	# Setup default species bounds array -
 	species_bounds_array = zeros(number_of_species,2)

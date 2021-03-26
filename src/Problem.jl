@@ -42,16 +42,13 @@ function generate_problem_dictionary()
 	# Setup the flux bounds array -
 	flux_bounds_array = zeros(number_of_reactions,2)
 	# TODO: update the flux_bounds_array for each reaction in your network
-	# TODO: col 1 => lower bound
-	# TODO: col 2 => upper bound
-	# TODO: each row is a reaction
-	flux_bounds_array[1,:] = [0, 3.1716]
-	flux_bounds_array[2,:] = [0, 7.308]
-	flux_bounds_array[3,:] = [0, 1.242]
-	flux_bounds_array[4,:] = [0, 8.964]
-	flux_bounds_array[5,:] = [-0.4932, 0.4932]
-	flux_bounds_array[6:19, 0] .= 0    # [mmol/gDW*hr]  lower bound on exchange fluxes
-	flux_bounds_array[6:19, 1] .= 10   # [mmol/gDW*hr]  upper bound on exchange fluxes
+	flux_bounds_array[1,:] = [0, 3.1716]		# [mmol/gDW*hr] Bounds for v1 flux
+	flux_bounds_array[2,:] = [0, 7.308]			# [mmol/gDW*hr] Bounds for v2 flux
+	flux_bounds_array[3,:] = [0, 1.242]			# [mmol/gDW*hr] Bounds for v3 flux
+	flux_bounds_array[4,:] = [0, 8.964]			# [mmol/gDW*hr] Bounds for v4 flux
+	flux_bounds_array[5,:] = [-0.4932, 0.4932]	# [mmol/gDW*hr] Bounds for v5 flux
+	flux_bounds_array[6:19, 1] .= 0    			# [mmol/gDW*hr]  lower bound on exchange fluxes
+	flux_bounds_array[6:19, 2] .= 10   			# [mmol/gDW*hr]  upper bound on exchange fluxes
 
 	# Setup default species bounds array -
 	species_bounds_array = zeros(number_of_species,2)
@@ -65,6 +62,8 @@ function generate_problem_dictionary()
 	objective_coefficient_array = zeros(number_of_reactions)
 	# TODO: update me to maximize Urea production (Urea leaving the virtual box) 
 	# TODO: if is_minimum_flag = true => put a -1 in the index for Urea export
+	objective_coefficient_array[17] = -1
+	print(objective_coefficient_array)
 	
 	
 	# =============================== DO NOT EDIT BELOW THIS LINE ============================== #

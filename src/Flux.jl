@@ -55,7 +55,7 @@ end
     `exit_flag` = 0 if optimal
     `status_flag` = 5 if optimal
 """
-function calculate_optimal_flux_distribution(stoichiometric_matrix::Array{Float64,2}, default_bounds_array::Array{Float64,2}, species_bounds_array::Array{Float64,2}, objective_coefficient_array::Array{Float64,1}; 
+function calculate_optimal_flux_distribution(stoichiometric_matrix::Array{Int64,2}, default_bounds_array::Array{Float64,2}, species_bounds_array::Array{Float64,2}, objective_coefficient_array::Array{Float64,1}; 
     min_flag::Bool = true)
 
     # set some constants -
